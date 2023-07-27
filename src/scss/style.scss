@@ -1,0 +1,672 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//<ОБНУЛЕНИЕ>===============
+@import "clearstyle.scss";
+//</ОБНУЛЕНИЕ>==============
+
+
+//<ШИФТЫ>==============================================================================================================================================================
+//==(добавить   &display=swap   при подключении через google fonts)==//
+@import "./fonts/fonts.scss";
+@import url(https://fonts.googleapis.com/css?family=Roboto:regular,&display=swap);
+
+//===========================================
+$fontFamily: "Roboto"; //Шрифт по умолчанию
+$fontSize: 14px; //Размер шрифта по умолчанию
+$mainColor: #000; // Цвет шрифта по умолчанию
+//===========================================
+
+//<ИКОНОЧНЫЙ ШРИФТ>==============
+@import "./fonts/icons.scss"; 
+//</ИКОНОЧНЫЙ ШРИФТ>=============
+//</ШИФТЫ>=============================================================================================================================================================
+
+
+//<ПЕРЕМЕННЫЕ>=========================================================================================================================================================
+//<Основные цвета>======
+$color1: #000;
+$color2: #000;
+$color3: #000;
+//</Основные цвета>=====
+//<Брейкпоинты>=========
+$siteWidth: 1200;
+$widthContainer: 1105 + 16;
+$mb1: $widthContainer + 12;
+$mb2: 991.92;
+$mb3: 767.98;
+$mb4: 479.98;
+//</Брейкпоинты>========
+//</ПЕРЕМЕННЫЕ>========================================================================================================================================================
+
+
+//<МИКСИНЫ>============
+@import "mixin.scss";
+//</МИКСИНЫ>===========
+
+//<HEADER>==============
+@import "header.scss";
+//</HEADER>=============
+
+//<FOOTER>==============
+@import "footer.scss";
+//</FOOTER>=============
+
+//<ASIDE>==============
+@import "aside.scss";
+//</ASIDE>=============
+
+//<General>===================
+@import "./general.scss";
+//</General>==================
+ 
+
+//<СТРАНИЦЫ САЙТА>=========================================================================================================================================================
+
+//<Page1>========================
+//@import "./pages/page1.scss";
+//</Page1>=======================
+
+//</СТРАНИЦЫ САЙТА>========================================================================================================================================================
+
+.companies {
+
+  background-color: #F4EDE4;
+
+  @include adaptivMagic("padding-top", 45, 35, mode(1));
+
+  &__container {
+    max-width: 925px;
+  }
+
+  &__title {
+    text-align: center;
+    color: #000;
+    line-height: 15.75px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+
+  &__logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include adaptivMagic("margin-top", 14, 5, mode(1));
+    @include adaptivMagic("padding-top", 14, 0, mode(1));
+    @include adaptivMagic("padding-bottom", 14, 0, mode(1));
+
+    flex-wrap: wrap;
+  }
+
+  &__company-logo {
+    margin: 0 10px;
+
+    img {
+      width: 100%;
+    }
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        margin: 0;
+        padding: 10px 0;
+        text-align: center;
+        // margin: 0 -10px;
+
+        flex: 0 1 33.333%;
+
+        img {
+          width: auto;
+        }
+
+        &:nth-child(5) {
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    // Портретные экраны телефонов и меньше //
+    @media (max-width: #{$mb4+px}) {
+      &{
+        flex: 0 1 100%;
+        padding: 15px 0;
+
+        img {
+          // Как уменьшить иконки?
+        }
+
+        &:nth-child(5) {
+          img {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+//<>=========================================================================================================================================================
+
+.possibilities {
+
+  background-color: #F4EDE4;
+
+  &__container {}
+
+  &__team-together {
+    justify-content: flex-end;
+  }
+
+  &__item {}
+
+  &__flexibility-work {
+    
+    .item-possibilities__body {
+      flex: 0 1 470px;
+    }
+  }
+
+  &__powerful-tools {
+    justify-content: flex-end;
+
+    .item-possibilities__body {
+      @include adaptivMagic("padding-right", 20, 0, mode(1));
+    }
+  }
+}
+
+.item-possibilities {
+
+  display: flex;
+  @include adaptivMagic("padding-top", 50, 15, mode(1));
+  @include adaptivMagic("padding-bottom", 50, 15, mode(1));
+
+  &:last-child {
+    @include adaptivMagic("padding-bottom", 50, 35, mode(1));
+  }
+
+  // Крупные телефоны и протативные планшеты //
+  @media (max-width: #{$mb3+px}) {
+    &{
+      justify-content: center;
+    }
+  }
+
+  &__body {
+    flex: 0 1 450px;
+  }
+
+  &__title {
+    
+    h3 {
+      @include adaptivMagic("font-size", 50, 30, mode(1));
+      @include adaptivMagic("line-height", 56, 36, mode(1));
+      letter-spacing: 0.8px;
+    }
+  }
+
+  &__txt {
+
+    margin-top: 14px;
+
+    p {
+      font-size: 18px;
+      line-height: 25.999px;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  &__more {
+
+    margin-top: 11px;
+
+    a {
+      color: #1264A3;
+      font-size: 18px;
+      line-height: 25.999px;
+    }
+  }
+}
+//<>=========================================================================================================================================================
+.teams {
+
+  @include adaptivMagic("padding-top", 100, 20, mode(1));
+
+  &__container {}
+
+  &__header {}
+
+  &__percents {}
+
+  &__txt {}
+
+  &__ps {
+    padding-left: 8px;
+    text-align: center;
+    @include adaptivMagic("margin-top", 90, 40, mode(1));
+    padding-bottom: 24px;
+    p {
+      color: #696969;
+      line-height: 18px;
+
+      span {
+        position: relative;
+        &::before {
+          content: '*';
+          position: absolute;
+          left: -15px;
+          top: -10px;
+          color: #696969;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}
+
+//-----------------------------------
+.header-teams {
+  
+  margin-top: 8px;
+
+  text-align: center;
+
+  &__title {
+    position: relative;
+    h2 {
+      @include adaptivMagic("font-size", 46, 30, mode(1));
+      @include adaptivMagic("line-height", 56, 36, mode(1));
+      letter-spacing: 0.8px;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 62px;
+      width: 109px;
+      left: -12px;
+      top: -4px;
+      z-index: -1;
+
+      transform: translateY(-100%);
+
+      background: url('/img/teams/1.jpg') left top no-repeat;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 74px;
+      height: 44px;
+      right: 60px;
+      top: -8px;
+      z-index: -1;
+
+      transform: translateY(-100%);
+
+      background: url('/img/teams/4.jpg') left top no-repeat;
+    }
+
+    @media (max-width: 915px) {
+      &::before,
+      &::after{
+        display: none;
+      }
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+
+    margin-top: 15px;
+    p {
+      font-size: 18px;
+      line-height: 25.999px; /* 144.44% */
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 77px;
+      height: 51px;
+      left: 37px;
+      top: 0;
+      z-index: -1;
+
+      background: url('/img/teams/2.jpg') left top no-repeat;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 86px;
+      height: 57px;
+      right: -8px;
+      top: 0;
+      z-index: -1;
+      transform: translateY(-48%);
+
+      background: url('/img/teams/5.jpg') left top no-repeat;
+    }
+    @media (max-width: 915px) {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    margin-top: 32px;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 90px;
+      height: 52px;
+      left: -12px;
+      top: 15px;
+      z-index: -1;
+
+      background: url('/img/teams/3.jpg') left top no-repeat;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 86px;
+      height: 57px;
+      right: 48px;
+      top: 6px;
+      z-index: -1;
+
+      background: url('/img/teams/6.jpg') left top no-repeat;
+    }
+    @media (max-width: 915px) {
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    border-radius: 4px;
+
+    a {
+      padding: 20px;
+      width: 100%;
+
+      // Портретные экраны телефонов и меньше //
+      @media (max-width: #{$mb4+px}) {
+        &{
+          padding: 10px;
+        }
+      }
+    }
+
+    &:first-child {
+      flex: 0 1 305px;
+      color: #fff;
+      background: #611F69;
+      margin-right: 8px;
+    }
+
+    &:last-child {
+      flex: 0 1 195px;
+      color: #611F69;
+    }
+  }
+}
+//-----------------------------------
+.percent-teams {
+
+  @include adaptivMagic("margin-top", 88, 50, mode(1));
+
+  display: flex;
+  justify-content: space-around;
+
+  // Крупные телефоны и протативные планшеты //
+  @media (max-width: #{$mb3+px}) {
+    &{
+      text-align: center;
+      justify-content: space-between;
+      @include adaptivMagic("margin-left", -10, -5, mode(1));
+      @include adaptivMagic("margin-right", -10, -5, mode(1));
+    }
+  }
+
+  &__item {
+
+    &:nth-child(1) {
+      flex: 0 1 162px;
+    }
+    &:nth-child(2) {
+      flex: 0 1 154px;
+    }
+    &:nth-child(3) {
+      flex: 0 1 184px;
+    }
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        @include adaptivMagic("padding-left", 10, 5, mode(1));
+        @include adaptivMagic("padding-right", 10, 5, mode(1));
+      }
+    }
+    // Портретные экраны телефонов и меньше //
+    @media (max-width: #{$mb4+px}) {
+      &{
+        flex: 0 1 33.333% !important;
+      }
+    }
+  }
+
+  &__title {
+    h3 {
+      @include adaptivMagic("font-size", 64, 40, mode(1));
+      @include adaptivMagic("line-height", 64, 44, mode(1));
+      color: #611F69;
+    }
+  }
+
+  &__txt {
+    p {
+      line-height: 20px;
+    }
+  }
+}
+//-----------------------------------
+
+.txt-teams {
+
+  @include adaptivMagic("margin-top", 122, 30, mode(1));
+  margin-top: 122px;
+  
+  display: flex;
+  justify-content: flex-end;
+
+  &__txt {
+    flex: 0 1 505px;
+
+    blockquote {
+      q {
+        @include adaptivMagic("font-size", 27, 22, mode(1));
+        @include adaptivMagic("line-height", 38.192, 32.192, mode(1));
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+
+  &__author {
+    font-style: normal;
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  &__link {
+    @include adaptivMagic("margin-top", 27, 20, mode(1));
+    a {
+      font-size: 18px;
+      color: #1264A3;
+    }
+  }
+}
+//-----------------------------------
+//<>=========================================================================================================================================================
+.new-way-to-work {
+
+  background-color: #F4EDE4;
+  padding: 60px 0 78px 0;
+
+  &__container {}
+
+  &__title {
+    text-align: center;
+
+    h3 {
+      @include adaptivMagic("font-size", 31, 25, mode(1));
+      line-height: 38px;
+      letter-spacing: 0.3px;
+    }
+  }
+
+  &__body {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex: 0 1 256px;
+
+    display: flex;
+    flex-direction: column;
+    height: 422px;
+    padding-bottom: 20px;
+    position: relative;
+    background-color: #fff;
+
+    &:first-child {
+      background-color: #4A154B;
+
+      .item-new-way-to-work__top-link,
+      .item-new-way-to-work__subtitle,
+      .item-new-way-to-work__title,
+      .item-new-way-to-work__link {
+        color: #fff;
+      }
+
+    }
+  }
+}
+
+.item-new-way-to-work {
+
+  &__top-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 14px;
+    // writing-mode: vertical-lr;
+    // text-orientation:upright;
+    color: #1264A3;
+
+    a {
+      font-size: 16px;
+      word-wrap: break-word;
+      // word-spacing: -20px;
+      letter-spacing: 0px;
+      line-height: 18.6px;
+      color:inherit
+    }
+  }
+
+  &__img {}
+
+  &__subtitle {
+    margin-top: 7px;
+    padding-left: 23px;
+  }
+
+  &__title {
+    flex: 1 1 auto;
+    margin-top: 10px;
+    font-size: 24px;
+    line-height: 30px;
+    padding-left: 23px;
+  }
+
+  &__link {
+    padding-left: 12px;
+    color: #1264A3;
+    
+    a {
+      line-height: 15.75px;
+      /* 112.5% */
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: inherit
+    }
+  }
+}
+//<>=========================================================================================================================================================
+.welcome {
+
+  background-color: #4A154B;
+  padding: 112px 0;
+
+  &__container {}
+
+  &__title {
+    text-align: center;
+    h2 {
+      color: #FFF;
+      font-size: 48px;
+      line-height: 59.375px;
+      letter-spacing: 0.8px;
+    }
+  }
+
+  &__buttons {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    border-radius: 4px;
+    
+    a {
+      line-height: 18px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 20px 40px;
+    }
+  
+    &:first-child {
+      color: #611F69;
+      background-color: #fff;
+      margin-right: 8px;
+    }
+  
+    &:last-child {
+      color: #fff;
+    }
+  }
+}

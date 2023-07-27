@@ -1,0 +1,81 @@
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class*="_icon-"] {
+	&:before {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-cloud:before {
+  content: "\e900";
+  color: #1264a3;
+}
+._icon-facebook:before {
+  content: "\e901";
+}
+._icon-google .path1:before {
+  content: "\e902";
+  color: rgb(234, 67, 53);
+}
+._icon-google .path2:before {
+  content: "\e903";
+  margin-left: -0.9794921875em;
+  color: rgb(66, 133, 244);
+}
+._icon-google .path3:before {
+  content: "\e904";
+  margin-left: -0.9794921875em;
+  color: rgb(251, 188, 5);
+}
+._icon-google .path4:before {
+  content: "\e905";
+  margin-left: -0.9794921875em;
+  color: rgb(52, 168, 83);
+}
+._icon-in:before {
+  content: "\e906";
+}
+._icon-language:before {
+  content: "\e907";
+}
+._icon-switch .path1:before {
+  content: "\e908";
+  color: rgb(255, 255, 255);
+}
+._icon-switch .path2:before {
+  content: "\e909";
+  margin-left: -2.142578125em;
+  color: rgb(0, 102, 255);
+}
+._icon-switch .path3:before {
+  content: "\e90a";
+  margin-left: -2.142578125em;
+  color: rgb(255, 255, 255);
+}
+._icon-switch .path4:before {
+  content: "\e90b";
+  margin-left: -2.142578125em;
+  color: rgb(0, 102, 255);
+}
+._icon-twitter:before {
+  content: "\e90c";
+}
+._icon-youtube .path1:before {
+  content: "\e90d";
+  color: rgb(0, 0, 0);
+}
+._icon-youtube .path2:before {
+  content: "\e90e";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}

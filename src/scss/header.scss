@@ -1,0 +1,590 @@
+//<HEADER>=========================================================================================================================================================
+.header {
+
+  background-color: #541554;
+
+	&__container {
+    position: relative;
+  }
+
+	&__body {
+    display: flex;
+    @include adaptivMagic("padding-top", 30, 20, mode(1));
+    @include adaptivMagic("padding-bottom", 30, 20, mode(1));
+  }
+
+	&__menu {
+
+    z-index: 30;
+
+    margin-left: 91px;
+    @media (max-width: #{$siteWidth+px}) {
+      &{
+        margin-left: calc(0px + (91 - 0) * ((100vw - 767px) / ($widthContainer - 767)));
+      }
+    }
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        height: 100%;
+        overflow: auto;
+        min-height: 100vh;
+        background-color: #812981;
+        margin-left: 0;
+        top: 0;
+        left: -100%;
+        display: block;
+        position: absolute;
+
+        transition: left 0.4s ease 0s;
+        
+        a {
+          color: white;
+        }
+
+        &._active {
+          left: 0;
+        }
+      }
+    }
+    display: flex;
+    flex: 0 1 450px;
+
+  }
+
+	&__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    // background-color: #fff;
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        flex-direction: column;
+        padding: 30px 50px;
+      }
+    }
+
+    li {
+      // Крупные телефоны и протативные планшеты //
+      @media (max-width: #{$mb3+px}) {
+        &{
+          padding-bottom: 30px;
+        }
+      }
+    }
+  }
+
+	&__link {
+    color: #1D1D1D;
+    font-size: 15px;
+		&_white {
+      color: #FFF;
+      line-height: 18px; /* 128.57% */
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+	}
+
+	&__right-side {
+    margin-left: auto;
+    display: flex;
+    flex: 0 1 275px;
+    justify-content: space-between;
+    padding: 0 0 0 60px;
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        @include adaptivMagic("padding-left", 0, 50, mode(1));
+        flex: 0 1 215px;
+        a {
+          @include adaptivMagic("font-size", 15, 13, mode(1));
+        }
+      }
+    }
+	}
+}
+
+@media (max-width: #{$mb3 + px}) {
+  //=======<MENU-BURGER>======
+  //<FOR SPAN-FORMUL>====
+  $burger-height: 20px;
+  $burger-width: 30px;
+  //</FOR SPAN-FORMUL>===
+  .menu-burger {
+    //<POSITION>================
+    position: absolute;
+    top: 29px;
+    @include adaptivMagic("top", 29, 17, mode(1));
+    @include adaptivMagic("left", 35, 15, mode(1));
+    z-index: 20;
+    //<POSITION>================
+    height: $burger-height;
+    width: $burger-width;
+  }
+  //=========================
+
+  //<MENU-LINES>=====================
+  $color-lines: #ac6cac; //COLOR-LINES
+  $height-lines: 3px;  //HEIGH-LINES
+
+  .menu-burger { 
+    & span:nth-child(2) {
+      display: block;
+      position: absolute;
+      top: calc($burger-height/2 - $height-lines/2);
+      height: $height-lines;
+      width: 100%;
+      background-color: $color-lines;
+    }
+
+    & span:nth-child(1),
+    & span:nth-child(3) {
+      content: "";
+      display: block;
+      position: absolute;
+      height: $height-lines;
+      background-color: $color-lines;
+      width: 100%;
+    }
+
+    & span:nth-child(1) {top: 0;}
+    & span:nth-child(3) {bottom: 0;}
+    //</MENU-LINES>====================
+    //<ANIMATION>=================================================================
+    // & span {transition: 0.3s ease 0s;transition-property: all;}
+    // & {
+    //   --duration: 0.3s;
+    //   --delay: 0;
+    //   --deg1: 0;
+    //   --deg2: 0;
+    //   --translateYMiddlePos1: 0;
+    //   --translateYMiddlePos2: 0;
+    // }
+    // & span {transition: all ease 0.3s 0s;transition-duration: var(--duration, 0.3s)}
+    // & span:nth-child(1) {transform: translateY(var(--translateYMiddlePos1, 0))}
+    // & span:nth-child(2) {transition-delay: var(--delay, 0)}
+    // & span:nth-child(3) {transform: translateY(var(--translateYMiddlePos2, 0))}
+    //</ANIMATION>================================================================
+
+    //<MENU-BURGER _ACTIVE>=================
+    // &._active span:nth-child(1) {transform: translateY(calc(($burger-height / 2) - ($height-lines / 2))) rotate(45deg);}
+    // &._active span:nth-child(2) {transform: scale(0);}
+    // &._active span:nth-child(3) {transform: translateY(calc(($burger-height / 2) - ($height-lines / 2)) * (-1)) rotate(-45deg);}
+
+    // &._active span:nth-child(1) {transform: translateY(calc(($burger-height / 2) - ($height-lines / 2))) rotate(var(--deg1, 0))}
+    // &._active span:nth-child(2) {transform: scale(0);}
+    // &._active span:nth-child(3) {transform: translateY(calc(($burger-height / 2) - ($height-lines / 2)) * (-1)) rotate(var(--deg2, 0))}
+    //</MENU-BURGER _ACTIVE>================
+    //=======</MENU-BURGER>======
+  }
+}
+
+//</HEADER>=========================================================================================================================================================
+
+
+
+//<SUBHEADER>=========================================================================================================================================================
+
+.subheader {
+
+  // overflow: auto;
+
+  @include adaptivMagic("padding-top", 60, 30, mode(1));
+  @include adaptivMagic("padding-bottom", 80, 40, mode(1));
+  padding-bottom: 80px;
+  position: relative;
+
+  min-height: 100vh;
+
+  background-color: #541554;
+
+		&__container {}
+
+		&__body {
+      display: flex;
+
+      // Крупные телефоны и протативные планшеты //
+      @media (max-width: #{$mb3+px}) {
+        &{
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+      }
+    }
+
+    &__buttons {}
+}
+
+.body-subheader {
+
+	&__info {
+    flex: 1 1 520px;
+    padding-right: 20px;
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        flex: auto;
+        width: 100%;
+      }
+    }
+	}
+
+	&__img {
+    flex: 0 1 540px;
+    height: 308px;
+    // min-width: 430px;
+    // padding-bottom: 27.77%;
+
+    img {
+      object-fit: contain !important;
+    }
+
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        flex: 0 1 308px;
+        width: 540px;
+
+        img {}
+      }
+    }
+
+    // Средние мониторы и планшеты //
+    @media (max-width: 575px) {
+      &{
+        max-width: 100%;
+        padding-bottom: 60%;
+        max-height: 0px;
+        margin: 0 -8px;
+
+        img {}
+      }
+    }
+
+    // img {
+    //   position: absolute;
+    //   right: 0;
+    //   margin-right: 5px;
+    //   margin-bottom: -5px;
+    // }
+	}
+}
+
+.subheader-info {
+
+  color: #FFF;
+
+	&__title {
+
+    h1 {
+      @include adaptivMagic("font-size", 60, 30, mode(1));
+      letter-spacing: 1.5px;
+      @include adaptivMagic("line-height", 68, 40, mode(1));
+      color: #FFF;
+
+      // Крупные телефоны и протативные планшеты //
+      @media (max-width: #{$mb3+px}) {
+        &{
+          text-align: center;
+          @include adaptivMagic("padding-bottom", 40, 15, mode(1));
+        }
+      }
+
+      br {
+        display: none;
+
+        @media (max-width: 560px) {
+          &{
+            display: block;
+          }
+        }
+
+        // Портретные экраны телефонов и меньше //
+        @media (max-width: #{$mb4+px}) {
+          &{
+            display: none;
+          }
+        }
+      }
+
+    }
+
+	}
+
+	&__txt {
+    @include adaptivMagic("margin-top", 70, 15, mode(1));
+
+    color: #FFF;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 19px;
+    line-height: 26.66px; /* 140.316% */
+    letter-spacing: 0.2px;
+	}
+
+	&__buttons {
+    @include adaptivMagic("margin-top", 54, 44, mode(1));
+    display: flex;
+	}
+
+	&__additive {
+    margin-top: 16px;
+    color: #FFF;
+    font-size: 20px;
+    line-height: 26.66px;
+    letter-spacing: 0.2px;
+	}
+}
+
+.subheader-buttons {
+
+	&__button {
+    width: 235px;
+    border-radius: 4px;
+    padding: 4px;
+    color: #611F69;
+
+    &:nth-child(1) {
+      background-color: #FFF;
+      box-shadow: 0px 0px 0px 0px #611F69;
+    }
+
+    &:nth-child(2) {
+      background-color: #4285F4;
+      box-shadow: 0px 0px 0px 0px #4285F4;
+      margin-left: 8px;
+
+      a {
+        justify-content: space-between;
+
+        p {
+          color: #FFF;
+          padding-right: 13px;
+        }
+      }
+    }
+	}
+}
+
+.subheader__buttons {
+
+  .subheader-buttons__button:first-child,
+  .subheader-buttons__button:last-child {
+    flex: 0 1 50%;
+    text-align: center;
+  }
+
+  .subheader-buttons__button_google {
+    a {
+      justify-content: center;
+    }
+  }
+}
+
+//<ANIMATION>=========================================================================================================================================================
+$delay-1: 1.28;
+.body-subheader {
+
+  &__info {}
+
+  &__img {}
+}
+
+.subheader-info {
+
+  &__title {
+
+    span {
+      opacity: 0;
+      visibility: hidden;
+      position: relative;
+      top: 10px;
+      transform: translateY(40px);
+      animation: emergence 0.2s ease 1s forwards;
+    }
+
+    span:nth-child(1) {
+      animation-delay: 1s;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 1.1s;
+    }
+    span:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+    span:nth-child(5) {
+      animation-delay: 1.25s;
+    }
+
+    span:nth-child(6) {
+      animation-delay: $delay-1+s;
+    }
+
+    @keyframes emergence {
+      50% {
+        opacity: 0.2;
+      }
+      60% {
+        opacity: 0.5;
+      }
+      80% {
+        opacity: 0.9;
+        visibility: visible;
+        top: 0;
+      }
+      100% {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+      }
+    }
+  }
+
+  &__txt {
+
+    span {
+      opacity: 0;
+      visibility: hidden;
+      position: relative;
+      top: 10px;
+      transform: translateY(0.1px);
+      animation: emergence 0.2s ease 1s forwards;
+    }
+
+    p:first-child {
+      span:nth-child(1) {
+        animation-delay: $delay-1+0.7s;
+      }
+      span:nth-child(2) {
+        animation-delay: $delay-1+0.725s;
+      }
+      span:nth-child(3) {
+        animation-delay: $delay-1+0.750s;
+      }
+      span:nth-child(4) {
+        animation-delay: $delay-1+0.775s;
+      }
+      span:nth-child(5) {
+        animation-delay: $delay-1+0.8s;
+      }
+      span:nth-child(6) {
+        animation-delay: $delay-1+0.825s;
+      }
+      span:nth-child(7) {
+        animation-delay: $delay-1+0.850s;
+      }
+      span:nth-child(8) {
+        animation-delay: $delay-1+0.875s;
+      }
+      span:nth-child(9) {
+        animation-delay: $delay-1+0.9s;
+      }
+      span:nth-child(10) {
+        animation-delay: $delay-1+0.925s;
+      }
+    }
+
+    p:last-child{
+      span:nth-child(1) {
+        animation-delay: $delay-1+0.95s;
+      }
+      span:nth-child(2) {
+        animation-delay: $delay-1+0.975s;
+      }
+      span:nth-child(3) {
+        animation-delay: $delay-1+1s;
+      }
+      span:nth-child(4) {
+        animation-delay: $delay-1+1.025s;
+      }
+      span:nth-child(5) {
+        animation-delay: $delay-1+1.05s;
+      }
+      span:nth-child(6) {
+        animation-delay: $delay-1+1.075s;
+      }
+      span:nth-child(7) {
+        animation-delay: $delay-1+1.1s;
+      }
+      span:nth-child(8) {
+        animation-delay: $delay-1+1.125s;
+      }
+      span:nth-child(9) {
+        animation-delay: $delay-1+1.150s;
+      }
+      span:nth-child(10) {
+        animation-delay: $delay-1+1.175s;
+      }
+    }
+    
+  }
+
+  &__buttons {
+
+  }
+
+  &__additive {}
+}
+
+.subheader-buttons {
+
+  &__button {
+
+    &:first-child {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.3);
+
+      animation: button-emergence 0.8s ease $delay-1+1.4s forwards;
+
+      @keyframes button-emergence {
+        100% {
+          opacity: 1;
+          visibility: visible;
+          transform: scale(1);
+        }
+      }
+    }
+
+    &_google {
+      position: relative;
+      z-index: 2;
+    }
+  }
+}
+
+.body-subheader {
+
+  &__img {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1) translateY(50px);
+
+
+    animation: img-emergence 1s ease $delay-1+1.6s forwards;
+
+    @keyframes img-emergence {
+      50% {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.1) translateY(0);
+      }
+      100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+      }
+    }
+  }
+}
+
+//</ANIMATION>=========================================================================================================================================================
+
+
+//</SUBHEADER>=========================================================================================================================================================
