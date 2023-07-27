@@ -532,7 +532,8 @@ $mb4: 479.98;
 .new-way-to-work {
 
   background-color: #F4EDE4;
-  padding: 60px 0 78px 0;
+  @include adaptivMagic("padding-top", 60, 30, mode(1));
+  @include adaptivMagic("padding-bottom", 78, 48, mode(1));
 
   &__container {}
 
@@ -547,17 +548,32 @@ $mb4: 479.98;
   }
 
   &__body {
+    margin: 0 -4px;
     margin-top: 32px;
     display: flex;
     justify-content: space-between;
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+      }
+    }
+    // Портретные экраны телефонов и меньше //
+    @media (max-width: #{$mb4+px}) {
+      &{
+        justify-content: space-between;
+      }
+    }
   }
 
   &__item {
+    margin: 0 4px;
     flex: 0 1 256px;
 
     display: flex;
     flex-direction: column;
-    height: 422px;
     padding-bottom: 20px;
     position: relative;
     background-color: #fff;
@@ -573,6 +589,26 @@ $mb4: 479.98;
       }
 
     }
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &{
+        flex: 0 1 42%;
+        margin-top: 20px;
+      }
+    }
+
+    // Портретные экраны телефонов и меньше //
+    @media (max-width: #{$mb4+px}) {
+      &{
+        flex: 0 1 48%;
+      }
+    }
+
+    &:first-child,
+    &:nth-child(2) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -582,6 +618,7 @@ $mb4: 479.98;
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 1;
     max-width: 14px;
     // writing-mode: vertical-lr;
     // text-orientation:upright;
@@ -597,7 +634,9 @@ $mb4: 479.98;
     }
   }
 
-  &__img {}
+  &__img {
+    padding-bottom: 208px;
+  }
 
   &__subtitle {
     margin-top: 7px;
@@ -605,14 +644,16 @@ $mb4: 479.98;
   }
 
   &__title {
-    flex: 1 1 auto;
+    flex: 1 1 142px;
     margin-top: 10px;
     font-size: 24px;
     line-height: 30px;
     padding-left: 23px;
+    padding-right: 5px;
   }
 
   &__link {
+    margin-top: 5.25px;
     padding-left: 12px;
     color: #1264A3;
     
@@ -629,7 +670,8 @@ $mb4: 479.98;
 .welcome {
 
   background-color: #4A154B;
-  padding: 112px 0;
+  @include adaptivMagic("padding-top", 112, 62, mode(1));
+  @include adaptivMagic("padding-bottom", 112, 62, mode(1));
 
   &__container {}
 
@@ -637,7 +679,7 @@ $mb4: 479.98;
     text-align: center;
     h2 {
       color: #FFF;
-      font-size: 48px;
+      @include adaptivMagic("font-size", 48, 38, mode(1));
       line-height: 59.375px;
       letter-spacing: 0.8px;
     }
@@ -650,13 +692,25 @@ $mb4: 479.98;
   }
 
   &__button {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     border-radius: 4px;
+    flex: 0 1 185px;
     
     a {
       line-height: 18px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      padding: 20px 40px;
+      width: 100%;
+      padding: 20px;
+
+      // Портретные экраны телефонов и меньше //
+      @media (max-width: #{$mb4+px}) {
+        &{
+          padding: 10px;
+        }
+      }
     }
   
     &:first-child {
