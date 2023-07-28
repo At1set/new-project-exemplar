@@ -566,6 +566,10 @@ $mb4: 479.98;
         justify-content: space-between;
       }
     }
+    
+    @media (max-width: 407.98px) {
+      justify-content: center;
+    }
   }
 
   &__item {
@@ -608,6 +612,14 @@ $mb4: 479.98;
     &:first-child,
     &:nth-child(2) {
       margin-top: 0;
+    }
+
+    @media (max-width: 407.98px) {
+      flex: 0 1 80%;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
     }
   }
 }
