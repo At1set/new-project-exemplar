@@ -254,18 +254,39 @@ $mb4: 479.98;
   }
 }
 
-.possibilities {
+// Портретные экраны телефонов и меньше //
+@media (min-width: #{$mb4+px}) {
+  .possibilities {
+  // КАК ЭТО АНИМИРОВАТЬ??
+    &__container {}
 
-  &__container {}
+    &__item {
+      position: relative;
+      
+      .item-possibilities__body {
+        transition: right 1s ease 0s;
+        position: relative;
+        right: 52vw;
+      }
 
-  &__item {
-    position: relative;
-    .item-possibilities__body {
-      transition: transform 1s ease 1s;
-      transform: translateX(-100%)
+      &:nth-child(2) {
+        .item-possibilities__body {
+          transition: left 1s ease 0s;
+          left: 52vw;
+        }
+      }
+
+      &._anim {
+        .item-possibilities__body {
+          right: 0;
+        }
+
+        &:nth-child(2) .item-possibilities__body {
+          left: 0;
+        }
+      }
     }
   }
-
 }
 //<>=========================================================================================================================================================
 .teams {
@@ -469,6 +490,77 @@ $mb4: 479.98;
     }
   }
 }
+
+// АИМАЦИЯ ПРИ СКРОЛЛЕ
+@media (min-width: 915px) {
+  .header-teams {
+    &__title {
+      &::before,
+      &::after {
+        transition: transform 0.5s ease 0s;  
+        transform: scale(0);
+      }
+
+      &::before {
+        transition-delay: 0.1s;
+      }
+      &::after {
+        transition-delay: 0.4s;
+      }
+    }
+    &__subtitle {
+      &::before,
+      &::after {
+        transition: transform 1s ease 0s;
+        transform: scale(0);
+      }
+
+      &::before {
+        transition-delay: 0.6s;
+      }
+      &::after {
+        transition-delay: 0.3s;
+      }
+    }
+    &__buttons {
+      &::before,
+      &::after {
+        transition: transform 1s ease 0s;
+        transform: scale(0);
+      }
+
+      &::before {
+        transition-delay: 0.7s;
+      }
+      &::after {
+        transition-delay: 1s;
+      }
+    }
+  }
+  .header-teams {
+    &._anim &__title {
+      &::before,
+      &::after {
+        transform: scale(1);
+      }
+    }
+
+    &._anim &__subtitle {
+      &::before,
+      &::after {
+        transform: scale(1);
+      }
+    }
+
+    &._anim &__buttons {
+      &::before,
+      &::after {
+        transform: scale(1);
+      }
+    }
+  }
+}
+// АИМАЦИЯ ПРИ СКРОЛЛЕ
 //-----------------------------------
 .percent-teams {
 
@@ -539,6 +631,7 @@ $mb4: 479.98;
   justify-content: flex-end;
 
   &__txt {
+    position: relative;
     flex: 0 1 505px;
 
     blockquote {
@@ -565,6 +658,71 @@ $mb4: 479.98;
       color: #1264A3;
     }
   }
+}
+
+.txt-teams {
+  &__txt {
+    $start-delay: 1s;
+    transition: transform $start-delay ease 0s;
+    transform: translateX(110%);
+
+    .txt-teams__author {
+
+      span {
+        opacity: 0;
+        transition: opacity 0.8s ease $start-delay;
+      }
+
+      span:nth-child(1) {
+        transition-delay: $start-delay+0.1s;
+      }
+      span:nth-child(2) {
+        transition-delay: $start-delay+0.4s;
+      }
+      span:nth-child(4) {
+        transition-delay: $start-delay+0.5s+0.7s;
+        transition-duration: 0.6s;
+      }
+      span:nth-child(5) {
+        transition-delay: $start-delay+0.6s+0.7s;
+        transition-duration: 0.6s;
+      }
+      span:nth-child(6) {
+        transition-delay: $start-delay+0.7s+0.7s;
+        transition-duration: 0.6s;
+      }
+      span:nth-child(7) {
+        transition-delay: $start-delay+0.8s+0.7s;
+        transition-duration: 0.6s;
+      }
+      span:nth-child(8) {
+        transition-delay: $start-delay+0.9s+0.7s;
+        transition-duration: 0.6s;
+      }
+    }
+
+    .txt-teams__link {
+      opacity: 0;
+      transition: opacity 0.5s ease $start-delay+1.8s, transform 0.8s ease $start-delay+1.8s;
+      transform: translateX(-10%);
+    }
+
+    &._anim {
+      transform: translateX(0);
+
+      .txt-teams__author {
+        span {
+          opacity: 1;
+        }
+      }
+
+      .txt-teams__link {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
 }
 //-----------------------------------
 //<>=========================================================================================================================================================

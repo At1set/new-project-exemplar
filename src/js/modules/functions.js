@@ -492,6 +492,11 @@ export function removeClasses(array, className) {
 export function animationOnScroll(timeout = 300) {
   const animItems = document.querySelectorAll("[data-anim-on-scroll]")
 
+  // Для анимации проценов
+  let values = Array.from(document
+    .querySelector(".percent-teams")
+    .querySelectorAll("h3")).map(e => +e.textContent.replace('%', ''))  
+
   if (animItems.length > 0) {
     window.addEventListener("scroll", animOnScroll)
     function animOnScroll() {
@@ -514,7 +519,11 @@ export function animationOnScroll(timeout = 300) {
         }
 
         if ((scrollY > animItemOffset - animItemPoint) && scrollY < (animItemOffset + animItemHeight)) {
-          animItem.classList.add('_anim')
+          if (animItem.classList.contains("percent-teams") && !animItem.classList.contains("_anim")) {
+            let procents = animItem.querySelectorAll('h3')
+            anim_procents(procents, values)
+          }
+          animItem.classList.add("_anim")
         } else {
           if (isAnimStartSingle !== "single") {
             animItem.classList.remove("_anim")
@@ -532,6 +541,27 @@ export function animationOnScroll(timeout = 300) {
       scrollLeft = window.scrollX || document.documentElement.scrollLeft,
       scrollTop = window.scrollY || document.documentElement.scrollTop;
     return {top: rect.top + scrollTop, left: rect.left + scrollLeft}
+  }
+
+  function anim_procents(procents, values) {
+    procents.forEach((procent, index) => {
+      let number = values[index]
+      let startValue = 0 + index*10
+      let delay = 10
+      function animation() {
+        startValue++
+        if (startValue + 12 == number) {
+          delay += 45 
+        }
+        procent.textContent = startValue + "%"
+        if (startValue !== number) {
+          setTimeout(() => {
+            animation()
+          }, delay)
+        }
+      }
+      animation()
+    })
   }
 }
 //===============================================================================================================================================
