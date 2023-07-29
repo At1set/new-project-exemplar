@@ -16,5 +16,8 @@ if (flsFunctions.isMobile.any()) {
   flsFunctions.spollers()
 }
 
+// Анимация при скролле
+flsFunctions.animationOnScroll()
+
 //Основной js файл
 import "./modules/script.js"
