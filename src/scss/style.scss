@@ -250,7 +250,16 @@ $mb4: 479.98;
       color: #1264A3;
       font-size: 18px;
       line-height: 25.999px;
+
+      transition: color 0.2s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #92c7ef;
+        }
+      }
     }
+
   }
 }
 
@@ -465,6 +474,9 @@ $mb4: 479.98;
   &__button {
     border-radius: 4px;
 
+    transition: 0.5s ease 0s;
+    transition-property: background-color, color;
+
     a {
       padding: 20px;
       width: 100%;
@@ -474,6 +486,17 @@ $mb4: 479.98;
         &{
           padding: 10px;
         }
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:first-child:hover {
+        background-color: #fce3ff;
+        color: #611F69;
+      }
+
+      &:last-child:hover {
+        color: #f4a8fc;
       }
     }
 
@@ -630,6 +653,13 @@ $mb4: 479.98;
   display: flex;
   justify-content: flex-end;
 
+  // Крупные телефоны и протативные планшеты //
+  @media (max-width: #{$mb3+px}) {
+    &{
+      justify-content: center;
+    }
+  }
+
   &__txt {
     position: relative;
     flex: 0 1 505px;
@@ -656,6 +686,14 @@ $mb4: 479.98;
     a {
       font-size: 18px;
       color: #1264A3;
+
+      transition: color 0.2s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #92c7ef;
+        }
+      }
     }
   }
 }
@@ -789,6 +827,12 @@ $mb4: 479.98;
         color: #fff;
       }
 
+      .item-new-way-to-work__link {
+        & a:hover {
+          color: #fd9eff;
+        }
+      }
+
     }
 
     // Крупные телефоны и протативные планшеты //
@@ -871,10 +915,86 @@ $mb4: 479.98;
       /* 112.5% */
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: inherit
+      color: inherit;
+
+      transition: color 0.2s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #92c7ef;
+        }
+      }
     }
   }
 }
+
+// АНИМАЦИЯ ПРИ СКРОЛЛЕ
+.new-way-to-work__body {
+  .item-new-way-to-work {
+    transform: translate(-5%, -10%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease 0s, opacity 0.8s ease 0s;
+
+    @media (min-width: #{$mb3+px}) {
+      &:nth-child(1) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(2) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.4s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.5s;
+      }
+    }
+
+    // Крупные телефоны и протативные планшеты //
+    @media (max-width: #{$mb3+px}) {
+      &:nth-child(1),
+      &:nth-child(3) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(2),
+      &:nth-child(4) {
+        transition-delay: 0.3s;
+      }
+    }
+
+
+    @media (max-width: 407px) {
+      &:nth-child(1),
+      &:nth-child(3) {
+        transform: translateX(-100%);
+      }
+      &:nth-child(2),
+      &:nth-child(4) {
+        transform: translateX(100%);
+      }
+    }
+    &._anim {
+      transform: translate(0, 0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // Крупные телефоны и протативные планшеты //
+  @media (min-width: #{$mb3+px}) {
+    &{
+      &._anim {
+        .item-new-way-to-work {
+          transform: translate(0, 0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+// АНИМАЦИЯ ПРИ СКРОЛЛЕ
 //<>=========================================================================================================================================================
 .welcome {
 
@@ -906,7 +1026,7 @@ $mb4: 479.98;
     text-align: center;
     border-radius: 4px;
     flex: 0 1 185px;
-    
+
     a {
       line-height: 18px;
       letter-spacing: 0.8px;
@@ -926,10 +1046,66 @@ $mb4: 479.98;
       color: #611F69;
       background-color: #fff;
       margin-right: 8px;
+
+      transition: background-color 0.5s ease 0s, color 0.5s ease 0s, transform 1s ease 1s, opacity 1s ease 1s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: #611F69;
+          color: #FFF;
+        }
+      }
     }
   
     &:last-child {
       color: #fff;
+
+      transition: background-color 0.5s ease 0s, color 0.5s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #f4a8fc;
+        }
+      }
     }
   }
 }
+// АНИМАЦИЯ ПРИ СКРОЛЛЕ
+.welcome {
+  &__title {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4A154B;
+
+      transition: left 1s ease 0s;
+    }
+  }
+
+  &__button:nth-child(1) {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+.welcome._anim {
+  .welcome__title {
+    &::before {
+      left: 100%;
+    }
+  }
+  .welcome__button:nth-child(1) {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+// АНИМАЦИЯ ПРИ СКРОЛЛЕ
+//<>=========================================================================================================================================================

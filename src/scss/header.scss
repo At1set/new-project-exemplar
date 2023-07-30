@@ -50,6 +50,15 @@
     display: flex;
     flex: 0 1 450px;
 
+    a {
+      transition: color 0.2s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #bd81cb;
+        }
+      }
+    }
   }
 
 	&__list {
@@ -101,6 +110,20 @@
         flex: 0 1 215px;
         a {
           @include adaptivMagic("font-size", 15, 13, mode(1));
+        }
+      }
+    }
+
+    a {
+      transition: color 0.2s ease 0s;
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #bd81cb;
+        }
+
+        &:last-child:hover {
+          color: #c527e9;
         }
       }
     }
@@ -348,6 +371,9 @@
     padding: 4px;
     color: #611F69;
 
+    transition: 0.6s ease 0s;
+    transition-property: background-color, color;
+
     &:nth-child(1) {
       background-color: #FFF;
       box-shadow: 0px 0px 0px 0px #611F69;
@@ -364,6 +390,25 @@
         p {
           color: #FFF;
           padding-right: 13px;
+        }
+
+        img {
+          z-index: -1;
+          transition: transform 0.3s ease 0s;
+        }
+      }
+    }
+
+    @media (any-hover: hover) {
+      &:first-child:hover {
+        background-color: #e67af2;
+        color: #fff;
+      }
+      &:last-child:hover {
+        background-color: #176ffc;
+        color: #7eafff;
+        img {
+          transform: rotate(360deg);
         }
       }
     }
