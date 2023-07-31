@@ -361,7 +361,7 @@ $mb4: 479.98;
 
       transform: translateY(-100%);
 
-      background: url('/img/teams/1.jpg') left top no-repeat;
+      background: url('../img/teams/1.jpg') left top no-repeat;
     }
 
     &::after {
@@ -376,7 +376,7 @@ $mb4: 479.98;
 
       transform: translateY(-100%);
 
-      background: url('/img/teams/4.jpg') left top no-repeat;
+      background: url('../img/teams/4.jpg') left top no-repeat;
     }
 
     @media (max-width: 915px) {
@@ -406,7 +406,7 @@ $mb4: 479.98;
       top: 0;
       z-index: -1;
 
-      background: url('/img/teams/2.jpg') left top no-repeat;
+      background: url('../img/teams/2.jpg') left top no-repeat;
     }
 
     &::after {
@@ -420,7 +420,7 @@ $mb4: 479.98;
       z-index: -1;
       transform: translateY(-48%);
 
-      background: url('/img/teams/5.jpg') left top no-repeat;
+      background: url('../img/teams/5.jpg') left top no-repeat;
     }
     @media (max-width: 915px) {
       &::before,
@@ -447,7 +447,7 @@ $mb4: 479.98;
       top: 15px;
       z-index: -1;
 
-      background: url('/img/teams/3.jpg') left top no-repeat;
+      background: url('../img/teams/3.jpg') left top no-repeat;
     }
 
     &::after {
@@ -460,7 +460,7 @@ $mb4: 479.98;
       top: 6px;
       z-index: -1;
 
-      background: url('/img/teams/6.jpg') left top no-repeat;
+      background: url('../img/teams/6.jpg') left top no-repeat;
     }
     @media (max-width: 915px) {
 
@@ -975,7 +975,7 @@ $mb4: 479.98;
       }
     }
     &._anim {
-      transform: translate(0, 0);
+      transform: translate(0, 0) !important;
       opacity: 1;
       visibility: visible;
     }

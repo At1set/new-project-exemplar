@@ -6,7 +6,8 @@ flsFunctions.isWebp()
 import "./modules/burger-menu.js"
 
 //Динамическое адаптирование
-flsFunctions.DynamicAdapt()
+const da = new flsFunctions.DynamicAdapt("max")
+da.init()
 
 //Слайдер
 //import "./modules/swiper.js"
