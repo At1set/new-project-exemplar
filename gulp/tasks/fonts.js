@@ -8,7 +8,8 @@ export const otfToTtf = () => {
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: "FONTS",
-        message: "Error: <%= error.message %>"
+        message: "Error: <%= error.message %>",
+        sound: false,
       }))
     )
     //Конвертация в .ttf

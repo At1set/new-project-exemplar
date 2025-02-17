@@ -18,5 +18,3 @@
     #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$siteWidth - 320}));
   }
 }
-
- 

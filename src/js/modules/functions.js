@@ -47,9 +47,14 @@ export let isMobile = {
   },
 }
 
-//Динамический адаптив
+//Динамический адаптив===============================================================================================================================================
 
-export function DynamicAdapt(type) {
+export function dynamicAdapt(type) {
+  const da = new DynamicAdapt(type)
+  return da.init()
+}
+
+function DynamicAdapt(type) {
   this.type = type
 }
 DynamicAdapt.prototype.init = function () {
@@ -206,9 +211,8 @@ DynamicAdapt.prototype.arraySort = function (arr) {
     return
   }
 }
-const da = new DynamicAdapt("max")
-da.init()
 
+//===============================================================================================================================================
 //SPOLLERS=====================================================================================================================================================
 export function spollers() {
   const spollersArray = document.querySelectorAll("[data-spollers]")
@@ -480,9 +484,62 @@ export function dataMediaQueries(array, dataSetValue) {
 }
 
 //===============================================================================================================================================
+
 // Убрать класс из всех элементов массива
 export function removeClasses(array, className) {
   for (var i = 0; i < array.length; i++) {
     array[i].classList.remove(className)
   }
 }
+//===============================================================================================================================================
+
+// Scrolling-animation
+export function animationOnScroll(timeout = 300) {
+  const animItems = document.querySelectorAll("[data-anim-on-scroll]")
+
+  if (animItems.length > 0) {
+    window.addEventListener("scroll", animOnScroll)
+    function animOnScroll() {
+      animItems.forEach((animItem) => {
+        const animItemHeight = animItem.offsetHeight
+        const animItemOffset = offset(animItem).top
+        let animStart = +animItem.dataset.animOnScroll || 4
+        let isAnimStartSingle = false
+
+        if (animItem.dataset.animOnScroll.includes(",")) {
+          animStart = animItem.dataset.animOnScroll.split(",")
+          isAnimStartSingle = animStart[1].trim()
+          animStart = +animStart[0]
+        }
+        
+        let animItemPoint = window.innerHeight - animItemHeight / animStart
+        
+        if (animItemHeight > window.innerHeight) {
+          animItemPoint = window.innerHeight - window.innerHeight / animStart
+        }
+
+        if (
+          scrollY > animItemOffset - animItemPoint &&
+          scrollY < animItemOffset + animItemHeight
+        ) {
+          animItem.classList.add("_anim")
+        } else {
+          if (isAnimStartSingle !== "single") {
+            animItem.classList.remove("_anim")
+          }
+        }
+      })
+    }
+    setTimeout(() => {
+      animOnScroll()
+    }, timeout)
+  }
+
+  function offset(el) {
+    const rect = el.getBoundingClientRect(),
+      scrollLeft = window.scrollX || document.documentElement.scrollLeft,
+      scrollTop = window.scrollY || document.documentElement.scrollTop
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+  }
+}
+//===============================================================================================================================================

@@ -7,7 +7,8 @@ export const images = () => {
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: "IMAGES",
-        message: "Error: <%= error.message %>"
+        message: "Error: <%= error.message %>",
+        sound: false,
       }))
     )
     .pipe(app.plugins.newer(app.path.build.images))

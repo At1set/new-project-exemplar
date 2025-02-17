@@ -5,7 +5,8 @@ export const svgSprive = () => {
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: "SVG",
-        message: "Error: <%= error.message %>"
+        message: "Error: <%= error.message %>",
+        sound: false,
       }))
     )
     .pipe(svgSprite({

@@ -20,6 +20,7 @@ if (document.querySelector(".NameOfSlider")) {
       nextEl: ".",
       prevEl: ".",
     },
+    
     //Пагинация
     pagination: {
       el: ".", // Указываем класс

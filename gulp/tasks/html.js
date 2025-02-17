@@ -7,10 +7,11 @@ export const html = () => {
     .pipe(app.plugins.plumber(
       app.plugins.notify.onError({
         title: "HTML",
-        message: "Error: <%= error.message %>"
+        message: "Error: <%= error.message %>",
+        sound: false,
       }))
     )
-    .pipe(fileInclude())
+    .pipe(fileInclude({}))
     .pipe(app.plugins.replace(/@img\//g, 'img/'))
     .pipe(
       app.plugins.if(

@@ -3,13 +3,16 @@ import * as flsFunctions from "./modules/functions.js"
 flsFunctions.isWebp()
 
 //Меню-бургер
-//import "./modules/burger-menu.js"
+import "./modules/burger-menu.js"
 
 //Динамическое адаптирование
-//flsFunctions.DynamicAdapt()
+// flsFunctions.dynamicAdapt("max")
+
+//Анимация при скролле
+// flsFunctions.animationOnScroll()
 
 //Слайдер
-//import "./modules/swiper.js"
+// import "./modules/swiper.js"
 
 //Включение спойлеров
 //flsFunctions.spollers()
