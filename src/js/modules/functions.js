@@ -49,12 +49,16 @@ export let isMobile = {
 
 //Динамический адаптив===============================================================================================================================================
 
+<<<<<<< HEAD
 export function dynamicAdapt(type) {
   const da = new DynamicAdapt(type)
   return da.init()
 }
 
 function DynamicAdapt(type) {
+=======
+export function DynamicAdapt(type) {
+>>>>>>> 67d67e8dac265e5324da45d6e03cf0714cc82890
   this.type = type
 }
 DynamicAdapt.prototype.init = function () {
@@ -211,8 +215,14 @@ DynamicAdapt.prototype.arraySort = function (arr) {
     return
   }
 }
+<<<<<<< HEAD
 
 //===============================================================================================================================================
+=======
+const da = new DynamicAdapt("max")
+da.init()
+
+>>>>>>> 67d67e8dac265e5324da45d6e03cf0714cc82890
 //SPOLLERS=====================================================================================================================================================
 export function spollers() {
   const spollersArray = document.querySelectorAll("[data-spollers]")
@@ -484,7 +494,6 @@ export function dataMediaQueries(array, dataSetValue) {
 }
 
 //===============================================================================================================================================
-
 // Убрать класс из всех элементов массива
 export function removeClasses(array, className) {
   for (var i = 0; i < array.length; i++) {
