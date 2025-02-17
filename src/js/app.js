@@ -3,7 +3,7 @@ import * as flsFunctions from "./modules/functions.js"
 flsFunctions.isWebp()
 
 //Меню-бургер
-import "./modules/burger-menu.js"
+// import "./modules/burger-menu.js"
 
 //Динамическое адаптирование
 // flsFunctions.dynamicAdapt("max")
